@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+
+<form action="/submit" method="post">
+    <input type="text" name="userInput" id="userInput" placeholder="Введите текст">
+</form>
+<button id="grammarButton" value="Отправить" onclick="checkGrammar()">PUT!</button>
+<div id="grammarResult" class="mt-3"></div>
+<script>
+function applyFormatting(text) {
+    // Заменяем символы форматирования на соответствующие HTML-теги
+    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Жирное начертание
+    text = text.replace(/`(.*?)`/g, '<code>$1</code>'); // Моноширинный шрифт
+    text = text.replace(/__(.*?)__/g, '<u>$1</u>'); // Подчеркивание
+    text = text.replace(/####/g, '&emsp;&emsp;'); // Отступ
+
+    return text;
+}
+
+    function checkGrammar() {
+        const userInput = document.getElementById('userInput').value;
+        const grammarButton = document.getElementById('grammarButton');
+        grammarButton.disabled = true;
+        grammarButton.innerText = 'Ожидайте...';
+
+        fetch('/magic_hat/word/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}',
+            },
+            body: JSON.stringify({ user_message: userInput }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            const grammarResultElement = document.getElementById('grammarResult');
+            grammarResultElement.innerHTML = applyFormatting(data.user_message);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        })
+        .finally(() => {
+            grammarButton.disabled = false;
+            grammarButton.innerText = 'Больше информации';
+        });
+    }
+</script>
+{% endblock %}
