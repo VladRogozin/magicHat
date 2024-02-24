@@ -3,5 +3,5 @@ from .views import *
 
 urlpatterns = [
     path('', index, name='index'),
-    path('word/', what_is_meaning, name='what_is_meaning'),
+    path('word/<str:type>/', check_function, name='usageInContext'),
 ]
