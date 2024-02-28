@@ -1,3 +1,12 @@
 body {
     background-color: #012E4A; /* Темный фон */
 }
+
+.shadow-box-lr {
+    box-shadow: -6px 6px 0px 1px rgba(129, 190, 206, 0.9);
+}
+
+.shadow-box-sm {
+    box-shadow: -3px 3px 0px 1px rgba(129, 190, 206, 0.9);
+}
+

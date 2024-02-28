@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/lernAboutWord.css' %}">
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card mt-5 border border-dark rounded border-2 shadow-box-lr">
+        <div class="text-center mt-2 mb-2">
+            <h1 class="card-title">{{ random_word.origin_word }}: {{ random_word.rus_translation }}</h1>
+          {% if random_word.image %}
+            <img src="{{ random_word.image.url }}" alt="{{ random_word.origin_word }} Image" class="img-fluid mx-auto d-block" style="max-width: 300px; max-height: 300px;">
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+      <div class="col-md-6 offset-md-3">
+          <div class="row">
+              {% if random_word.support_word %}
+                  {% for word, translation in random_word.support_word.items %}
+                      <div class="col-md-6 mb-3 ">
+                          <div class="border border-dark rounded text-center py-2 border-2 bg-light shadow-box-sm">
+                              {{ word }}: {{ translation }}
+                          </div>
+                      </div>
+                  {% endfor %}
+              {% endif %}
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
+<!--          {% if random_word.explanations %}-->
+<!--            <p class="card-text mt-3">-->
+<!--              <strong>Explanations:</strong> {{ random_word.explanations }}-->
+<!--            </p>-->
+<!--          {% endif %}-->
