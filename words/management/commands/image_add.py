@@ -11,7 +11,8 @@ class Command(BaseCommand):
             image='')  # Получаем слова без заполненных explanations
 
         for word in words_without_image:
-            image_path = f'media/words_image/{word.origin_word}.jpg'
+            image_path = f'media/media/words_image/{word.origin_word}.jpg'
+            print(os.path.exists(image_path))
             if os.path.exists(image_path):
                 word.image = image_path
                 word.save()

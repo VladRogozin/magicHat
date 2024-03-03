@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'learnAboutWord',
     'words',
+    'l_historys',
 
 ]
 

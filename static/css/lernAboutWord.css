@@ -1,6 +1,10 @@
 body {
     background-color: #012E4A; /* Темный фон */
 }
+a {
+    color: black; /* Изменяет цвет ссылки на черный */
+    text-decoration: none; /* Убирает подчеркивание ссылки */
+}
 
 .shadow-box-lr {
     box-shadow: -6px 6px 0px 1px rgba(129, 190, 206, 0.9);
@@ -10,3 +14,58 @@ body {
     box-shadow: -3px 3px 0px 1px rgba(129, 190, 206, 0.9);
 }
 
+.my_button {
+    color: #E8EDE7;
+    font-size: 11px; /* Размер шрифта 18 пикселей */
+    background-color: #378BA4;
+    border: 2px solid #81BECE; /* Красная граница толщиной 2 пикселя */
+}
+
+.my_button:hover {
+    background-color: #81BECE; /* Тот же цвет фона при активации */
+    border: 2px solid #036280; /* Та же граница при активации */
+}
+
+.my_button:active {
+    background-color: #81BECE; /* Тот же цвет фона при активации */
+    border: 2px solid #036280; /* Та же граница при активации */
+}
+
+.my_button_red {
+    color: #0c1e0c;
+    font-size: 11px; /* Размер шрифта 18 пикселей */
+    background-color: #ffffaf;
+    border: 2px solid #b7cb4f; /* Красная граница толщиной 2 пикселя */
+}
+
+.my_button_red:hover {
+    background-color: #b7cb4f; /* Тот же цвет фона при активации */
+    border: 2px solid #1f4d09; /* Та же граница при активации */
+}
+
+.my_button_red:active {
+    background-color: #b7cb4f; /* Тот же цвет фона при активации */
+    border: 2px solid #1f4d09; /* Та же граница при активации */
+}
+
+.my_text {
+    color: #E8EDE7;
+    font-family: 'Pangolin', cursive;
+    font-size: 17px; /* Размер шрифта 18 пикселей */
+    font-weight: bold; /* Жирное начертание */
+    letter-spacing: 1px; /* Увеличенное расстояние между буквами */
+    line-height: 1.5; /* Межстрочный интервал 1.5 */
+    background-color: #033a5c; /* Цвет фона */
+    padding: 10px 20px; /* Отступы внутри блока */
+    border-radius: 10px; /* Радиус скругления углов */
+    box-shadow: -4px 0px 0px 0px rgba(129, 190, 206, 0.9);
+}
+    /* Стиль для выделенного слова */
+.selected {
+    border: 1px solid red; /* рамка красного цвета */
+    padding: 2px; /* отступ вокруг рамки */
+}
+
+.hidden {
+    display: none; /* Скрытые слова по умолчанию */
+}

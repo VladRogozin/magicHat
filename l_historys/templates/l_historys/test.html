@@ -1,0 +1,170 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/lernAboutWord.css' %}">
+
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-md-6">
+            <p class="text-center">Image:</p>
+            <div class="text-center">
+                <img src="{{ random_history.image.url }}" alt="Image" class="img-fluid">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="d-inline-flex gap-1 mt-5">
+                        <button class="btn my_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNoun" aria-expanded="false" aria-controls="collapseNoun">Toggle Noun</button>
+                        <button class="btn my_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVerbs" aria-expanded="false" aria-controls="collapseVerbs">Toggle Verbs</button>
+                        <button class="btn my_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrepositions" aria-expanded="false" aria-controls="collapsePrepositions">Toggle Prepositions</button>
+                    </p>
+                    <div class="row mt-3">
+                        <div class="">
+                            <div class="collapse multi-collapse" id="collapseNoun">
+                                {% for key, value in random_history.noun.items %}
+                                    <div class="d-inline-block m-1 mb-3" onclick="toggleWordTranslation(this)">
+                                        <span class="border border-dark rounded text-center py-2 border-2 bg-light shadow-box-sm word px-3">{{ key }}</span>
+                                        <span class="translation border border-dark rounded text-center py-2 border-2 bg-light shadow-box-sm word px-3" style="display: none;">{{ value }}</span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="collapse multi-collapse" id="collapseVerbs">
+                                {% for key, value in random_history.verbs.items %}
+                                    <div class="d-inline-block m-1 mb-3" onclick="toggleWordTranslation(this)">
+                                        <span class="border border-dark rounded text-center py-2 border-2 bg-light shadow-box-sm word px-3">{{ key }}</span>
+                                        <span class="translation border border-dark rounded text-center py-2 border-2 bg-light shadow-box-sm word px-3" style="display: none;">{{ value }}</span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="collapse multi-collapse" id="collapsePrepositions">
+                                {% for key, value in random_history.prepositions.items %}
+                                    <div class="d-inline-block m-1 mb-3" onclick="toggleWordTranslation(this)">
+                                        <span class="border border-dark rounded text-center py-2 border-2 bg-light shadow-box-sm word px-3">{{ key }}</span>
+                                        <span class="translation border border-dark rounded text-center py-2 border-2 bg-light shadow-box-sm word px-3" style="display: none;">{{ value }}</span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-12 my_text" style="color:white;">
+                    <footer class="blockquote-footer pt-3">Die Geschichte von <cite title="Source Title">{{ random_history.name }}</cite></footer>
+                    <div id="textContainer">
+                        <!-- Здесь будут добавлены отдельные теги <p> для каждого слова -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="translationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Translation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="translationResult"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Подключение скриптов -->
+    <script>
+        function toggleWords(id) {
+            var element = document.getElementById(id);
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+            } else {
+                element.classList.add('hidden');
+            }
+        }
+
+     function toggleWordTranslation(element) {
+        var wordSpan = element.querySelector('.word');
+        var translationSpan = element.querySelector('.translation');
+
+        if (wordSpan.style.display !== 'none') {
+            wordSpan.style.display = 'none';
+            translationSpan.style.display = 'inline';
+        } else {
+            wordSpan.style.display = 'inline';
+            translationSpan.style.display = 'none';
+        }
+    }
+
+
+
+    </script>
+
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+  // Обработчик событий для клика по слову
+  document.addEventListener('click', function(event) {
+    // Проверяем, что клик произошел на элементе <span>
+    if (event.target.tagName === 'SPAN') {
+      // Получаем текст выбранного слова
+      var word = event.target.textContent.trim();
+      console.log(word)
+
+      // Вызываем встроенную функцию браузера для перевода слова
+      var translation = window.getSelection().toString();
+
+      console.log(translation)
+
+      // Отображаем результат перевода в модальном окне
+      document.getElementById('translationResult').textContent = translation;
+      // Показываем модальное окно
+      var modal = new bootstrap.Modal(document.getElementById('translationModal'));
+      modal.show();
+    }
+  });
+
+</script>
+<script>
+    // Получаем текст из переменной random_history.text
+    var text = "{{ random_history.text }}";
+
+    // Разбиваем текст на отдельные слова
+    var words = text.split(" ");
+
+    // Находим контейнер, куда будем добавлять отдельные теги <span>
+    var container = document.getElementById("textContainer");
+
+    // Проходимся по каждому слову
+    words.forEach(function(word) {
+        // Создаем новый элемент <span>
+        var span = document.createElement("span");
+        // Устанавливаем текст элемента как текущее слово
+        span.textContent = word + " "; // добавляем пробел после каждого слова
+        // Добавляем класс 'word' для каждого <span>
+        span.classList.add('word');
+        // Добавляем обработчик событий для щелчка по слову
+        span.addEventListener('click', function() {
+            // Удаляем класс 'selected' у всех слов
+            var allWords = document.querySelectorAll('.word');
+            allWords.forEach(function(elem) {
+                elem.classList.remove('selected');
+            });
+            // Добавляем класс 'selected' к выбранному слову
+            span.classList.add('selected');
+        });
+        // Добавляем элемент <span> в контейнер
+        container.appendChild(span);
+    });
+</script>
+{% endblock %}

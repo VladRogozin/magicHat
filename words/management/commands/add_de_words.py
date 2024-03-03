@@ -6,232 +6,1663 @@ class Command(BaseCommand):
     help = 'Add words to the Word model'
 
     def handle(self, *args, **options):
-        words_array = [
-  {
-    "origin_word": "die Leute",
-    "rus_translation": "люди",
+        words_array = [{
+    "origin_word": "die Karte",
+    "rus_translation": "карта; открытка",
     "support_word": {
-      "Bürger": "граждане",
-      "Familien": "семьи",
-      "Freunde": "друзья",
-      "mit den Händen": "с руками"
+      "Landkarte": "географическая карта",
+      "Spielkarte": "игральная карта",
+      "Grußkarte": "поздравительная открытка",
+      "mit dem Text": "с текстом"
     }
   },
   {
-    "origin_word": "der Mensch",
-    "rus_translation": "человек",
+    "origin_word": "der Koffer",
+    "rus_translation": "чемодан",
+    "support_word": {
+      "Gepäck": "багаж",
+      "Reise": "путешествие",
+      "Griff": "ручка",
+      "mit den Rädern": "с колесами"
+    }
+  },
+  {
+    "origin_word": "das Geschenk",
+    "rus_translation": "подарок",
+    "support_word": {
+      "Geburtstag": "день рождения",
+      "Überraschung": "сюрприз",
+      "Schleife": "бант",
+      "mit dem Papier": "с бумагой"
+    }
+  },
+  {
+    "origin_word": "die Kamera",
+    "rus_translation": "фотоаппарат; видеокамера",
+    "support_word": {
+      "Foto": "фото",
+      "Video": "видео",
+      "Objektiv": "объектив",
+      "mit dem Blitz": "со вспышкой"
+    }
+  },
+  {
+    "origin_word": "der Computer",
+    "rus_translation": "компьютер",
+    "support_word": {
+      "Bildschirm": "экран",
+      "Tastatur": "клавиатура",
+      "Maus": "мышь",
+      "mit dem Internet": "с интернетом"
+    }
+  },
+  {
+    "origin_word": "der Film",
+    "rus_translation": "фильм; плёнка",
+    "support_word": {
+      "Kino": "кино",
+      "Schauspieler": "актёр",
+      "Regisseur": "режиссёр",
+      "mit dem Ton": "со звуком"
+    }
+  },
+  {
+    "origin_word": "die Blume",
+    "rus_translation": "цветок",
+    "support_word": {
+      "Rose": "роза",
+      "Tulpe": "тюльпан",
+      "Garten": "сад",
+      "mit dem Duft": "с ароматом"
+    }
+  },
+  {
+    "origin_word": "die Vase",
+    "rus_translation": "ваза",
+    "support_word": {
+      "Glas": "стекло",
+      "Porzellan": "фарфор",
+      "Blumen": "цветы",
+      "mit dem Wasser": "с водой"
+    }
+  },
+  {
+    "origin_word": "das Bild",
+    "rus_translation": "картина",
+    "support_word": {
+      "Malerei": "живопись",
+      "Rahmen": "рама",
+      "Farbe": "цвет",
+      "mit dem Pinsel": "с кистью"
+    }
+  },
+  {
+    "origin_word": "das Handtuch",
+    "rus_translation": "носовой платок",
+    "support_word": {
+      "Stoff": "ткань",
+      "Nase": "нос",
+      "Schnupfen": "насморк",
+      "mit dem Muster": "с узором"
+    }
+  },
+  {
+    "origin_word": "der Ball",
+    "rus_translation": "мяч",
+    "support_word": {
+      "Fußball": "футбол",
+      "Basketball": "баскетбол",
+      "Tennis": "теннис",
+      "mit dem Leder": "с кожей"
+    }
+  },
+  {
+    "origin_word": "der Luftballon",
+    "rus_translation": "воздушный шар(ик)",
+    "support_word": {
+      "Helium": "гелий",
+      "Geburtstag": "день рождения",
+      "Fliegen": "летать",
+      "mit dem Faden": "с ниткой"
+    }
+  },
+  {
+    "origin_word": "das Spielzeug",
+    "rus_translation": "игрушка",
+    "support_word": {
+      "Puppe": "кукла",
+      "Auto": "машина",
+      "Lego": "лего",
+      "mit dem Knopf": "с кнопкой"
+    }
+  },
+  {
+    "origin_word": "die Rechnung",
+    "rus_translation": "счёт (для оплаты)",
+    "support_word": {
+      "Restaurant": "ресторан",
+      "Geld": "деньги",
+      "Trinkgeld": "чаевые",
+      "mit dem Kellner": "с официантом"
+    }
+  },
+  {
+    "origin_word": "der Umschlag",
+    "rus_translation": "конверт",
+    "support_word": {
+      "Brief": "письмо",
+      "Post": "почта",
+      "Marke": "марка",
+      "mit dem Kleber": "с клеем"
+    }
+  },
+  {
+    "origin_word": "das Papier",
+    "rus_translation": "бумага",
+    "support_word": {
+      "Schreiben": "писать",
+      "Lesen": "читать",
+      "Drucken": "печатать",
+      "mit dem Bleistift": "с карандашом"
+    }
+  },
+  {
+    "origin_word": "die Zeitung",
+    "rus_translation": "газета",
+    "support_word": {
+      "Nachrichten": "новости",
+      "Journalist": "журналист",
+      "Abonnement": "подписка",
+      "mit dem Datum": "с датой"
+    }
+  },
+  {
+    "origin_word": "der Brief",
+    "rus_translation": "письмо",
+    "support_word": {
+      "Adresse": "адрес",
+      "Unterschrift": "подпись",
+      "Grüße": "приветы",
+      "mit dem Inhalt": "с содержанием"
+    }
+  },
+  {
+    "origin_word": "die Fahrkarte",
+    "rus_translation": "билет (на поезд)",
+    "support_word": {
+      "Zug": "поезд",
+      "Bahnhof": "вокзал",
+      "Schaffner": "кондуктор",
+      "mit dem Preis": "с ценой"
+    }
+  },
+  {
+    "origin_word": "die Kleidung",
+    "rus_translation": "одежда",
+    "support_word": {
+      "Mode": "мода",
+      "Anziehen": "одеваться",
+      "Waschen": "стирать",
+      "mit dem Stil": "со стилем"
+    }
+  },
+  {
+    "origin_word": "die Schuhe",
+    "rus_translation": "обувь",
+    "support_word": {
+      "Fuß": "нога",
+      "Laufen": "бегать",
+      "Schnürsenkel": "шнурки",
+      "mit dem Absatz": "с каблуком"
+    }
+  },
+  {
+    "origin_word": "der Mantel",
+    "rus_translation": "пальто",
+    "support_word": {
+      "Winter": "зима",
+      "Kälte": "холод",
+      "Knopf": "пуговица",
+      "mit dem Kragen": "с воротником"
+    }
+  },
+  {
+    "origin_word": "das Kleid",
+    "rus_translation": "платье",
+    "support_word": {
+      "Frau": "женщина",
+      "Feier": "праздник",
+      "Rock": "юбка",
+      "mit dem Gürtel": "с поясом"
+    }
+  },
+  {
+    "origin_word": "das Hemd",
+    "rus_translation": "рубашка",
+    "support_word": {
+      "Mann": "мужчина",
+      "Arbeit": "работа",
+      "Kragen": "воротник",
+      "mit dem Knopf": "с пуговицей"
+    }
+  },
+  {
+    "origin_word": "der Rock",
+    "rus_translation": "юбка",
+    "support_word": {
+      "Frau": "женщина",
+      "Bein": "нога",
+      "Reißverschluss": "молния",
+      "mit dem Stoff": "с тканью"
+    }
+  },
+  {
+    "origin_word": "der Handschuh",
+    "rus_translation": "перчатка",
+    "support_word": {
+      "Hand": "рука",
+      "Finger": "палец",
+      "Wolle": "шерсть",
+      "mit dem Futter": "с подкладкой"
+    }
+  },
+  {
+    "origin_word": "der Hut",
+    "rus_translation": "шляпа",
+    "support_word": {
+      "Kopf": "голова",
+      "Sonne": "солнце",
+      "Feder": "перо",
+      "mit dem Rand": "с полями"
+    }
+  },
+  {
+    "origin_word": "das Sakko",
+    "rus_translation": "пиджак",
+    "support_word": {
+      "Mann": "мужчина",
+      "Schulter": "плечо",
+      "Tasche": "карман",
+      "mit dem Knopf": "с пуговицей"
+    }
+  },
+  {
+    "origin_word": "die Jacke",
+    "rus_translation": "куртка",
+    "support_word": {
+      "Körper": "тело",
+      "Wind": "ветер",
+      "Reißverschluss": "молния",
+      "mit dem Kragen": "с воротником"
+    }
+  },
+  {
+    "origin_word": "der Schal",
+    "rus_translation": "шарф",
+    "support_word": {
+      "Hals": "шея",
+      "Wärme": "тепло",
+      "Muster": "узор",
+      "mit dem Knoten": "с узлом"
+    }
+  },
+  {
+    "origin_word": "die Socke",
+    "rus_translation": "носок",
+    "support_word": {
+      "Fuß": "нога",
+      "Schuh": "обувь",
+      "Baumwolle": "хлопок",
+      "mit dem Loch": "с дыркой"
+    }
+  },
+  {
+    "origin_word": "der Pullover",
+    "rus_translation": "свитер",
+    "support_word": {
+      "Brust": "грудь",
+      "Winter": "зима",
+      "Ärmel": "рукав",
+      "mit dem Ausschnitt": "с вырезом"
+    }
+  },
+  {
+    "origin_word": "das T-Shirt",
+    "rus_translation": "футболка",
+    "support_word": {
+      "Bauch": "живот",
+      "Sommer": "лето",
+      "Aufdruck": "надпись",
+      "mit dem Rundhals": "с круглым вырезом"
+    }
+  },
+  {
+    "origin_word": "die Krawatte",
+    "rus_translation": "галстук",
+    "support_word": {
+      "Hemd": "рубашка",
+      "Büro": "офис",
+      "Seide": "шелк",
+      "mit dem Knoten": "с узлом"
+    }
+  },
+  {
+    "origin_word": "die Hose",
+    "rus_translation": "брюки",
+    "support_word": {
+      "Bein": "нога",
+      "Gürtel": "ремень",
+      "Hosenträger": "подтяжки",
+      "mit dem Reißverschluss": "с молнией"
+    }
+  },
+  {
+    "origin_word": "der März",
+    "rus_translation": "март",
+    "support_word": {
+      "Frühling": "весна",
+      "Ostern": "Пасха",
+      "Schnee": "снег",
+      "mit dem Löwen": "с львом"
+    }
+  },
+  {
+    "origin_word": "der April",
+    "rus_translation": "апрель",
+    "support_word": {
+      "Frühling": "весна",
+      "Regen": "дождь",
+      "Scherz": "шутка",
+      "mit dem Narren": "с дураком"
+    }
+  },
+  {
+    "origin_word": "der Mai",
+    "rus_translation": "май",
+    "support_word": {
+      "Frühling": "весна",
+      "Blume": "цветок",
+      "Feiertag": "праздник",
+      "mit dem Kranz": "с венком"
+    }
+  },
+  {
+    "origin_word": "der Juni",
+    "rus_translation": "июнь",
+    "support_word": {
+      "Sommer": "лето",
+      "Sonne": "солнце",
+      "Schule": "школа",
+      "mit dem Zeugnis": "с аттестатом"
+    }
+  },
+  {
+    "origin_word": "der Juli",
+    "rus_translation": "июль",
+    "support_word": {
+      "Sommer": "лето",
+      "Hitze": "жара",
+      "Urlaub": "отпуск",
+      "mit dem Eis": "с мороженым"
+    }
+  },
+  {
+    "origin_word": "der August",
+    "rus_translation": "август",
+    "support_word": {
+      "Sommer": "лето",
+      "Ernte": "урожай",
+      "Sternschnuppe": "звездопад",
+      "mit dem Löwen": "с львом"
+    }
+  },
+  {
+    "origin_word": "der September",
+    "rus_translation": "сентябрь",
+    "support_word": {
+      "Herbst": "осень",
+      "Blatt": "лист",
+      "Schule": "школа",
+      "mit dem Ranzen": "с ранцем"
+    }
+  },
+  {
+    "origin_word": "der Oktober",
+    "rus_translation": "октябрь",
+    "support_word": {
+      "Herbst": "осень",
+      "Kürbis": "тыква",
+      "Halloween": "Хэллоуин",
+      "mit dem Gespenst": "с привидением"
+    }
+  },
+  {
+    "origin_word": "der November",
+    "rus_translation": "ноябрь",
+    "support_word": {
+      "Herbst": "осень",
+      "Nebel": "туман",
+      "Laterne": "фонарик",
+      "mit dem Martin": "с Мартином"
+    }
+  },
+  {
+    "origin_word": "der Dezember",
+    "rus_translation": "декабрь",
+    "support_word": {
+      "Winter": "зима",
+      "Schnee": "снег",
+      "Weihnachten": "Рождество",
+      "mit dem Tannenbaum": "с елкой"
+    }
+  },
+  {
+    "origin_word": "der Frühling",
+    "rus_translation": "весна",
+    "support_word": {
+      "Jahreszeit": "время года",
+      "Blume": "цветок",
+      "Vogel": "птица",
+      "mit dem Grün": "с зеленью"
+    }
+  },
+  {
+    "origin_word": "der Sommer",
+    "rus_translation": "лето",
+    "support_word": {
+      "Jahreszeit": "время года",
+      "Sonne": "солнце",
+      "Strand": "пляж",
+      "mit dem Wasser": "с водой"
+    }
+  },
+  {
+    "origin_word": "der Herbst",
+    "rus_translation": "осень",
+    "support_word": {
+      "Jahreszeit": "время года",
+      "Blatt": "лист",
+      "Wind": "ветер",
+      "mit dem Gelb": "с желтым"
+    }
+  },
+  {
+    "origin_word": "der Winter",
+    "rus_translation": "зима",
+    "support_word": {
+      "Jahreszeit": "время года",
+      "Schnee": "снег",
+      "Eis": "лед",
+      "mit dem Weiß": "с белым"
+    }
+  },
+  {
+    "origin_word": "der Name",
+    "rus_translation": "имя, фамилия",
     "support_word": {
       "Person": "персона",
-      "Wesen": "существо",
-      "Lebewesen": "живое существо",
-      "mit dem Verstand": "с разумом"
+      "Identität": "идентичность",
+      "Vorname": "имя",
+      "mit dem Nachname": "с фамилией"
     }
   },
   {
-    "origin_word": "der Mann",
-    "rus_translation": "мужчина; муж",
+    "origin_word": "die Adresse",
+    "rus_translation": "адрес",
     "support_word": {
-      "Herr": "господин",
-      "Ehemann": "супруг",
-      "Bruder": "брат",
-      "mit dem Bart": "с бородой"
+      "Wohnort": "место жительства",
+      "Straße": "улица",
+      "Hausnummer": "номер дома",
+      "mit dem Postleitzahl": "с почтовым индексом"
     }
   },
   {
-    "origin_word": "die Frau",
-    "rus_translation": "женщина; жена",
+    "origin_word": "die Nummer",
+    "rus_translation": "номер",
     "support_word": {
-      "Dame": "дама",
-      "Ehefrau": "супруга",
-      "Schwester": "сестра",
-      "mit dem Kleid": "в платье"
+      "Zahl": "число",
+      "Reihenfolge": "порядок",
+      "Telefon": "телефон",
+      "mit dem Vorwahl": "с кодом"
     }
   },
   {
-    "origin_word": "das Kind",
-    "rus_translation": "ребенок",
+    "origin_word": "der Geburtstag",
+    "rus_translation": "день рождения",
     "support_word": {
-      "Baby": "младенец",
-      "Junge": "мальчик",
-      "Mädchen": "девочка",
-      "mit dem Spielzeug": "с игрушкой"
+      "Datum": "дата",
+      "Feier": "праздник",
+      "Kuchen": "торт",
+      "mit dem Geschenk": "с подарком"
     }
   },
   {
-    "origin_word": "der Junge",
-    "rus_translation": "мальчик",
+    "origin_word": "verheiratet",
+    "rus_translation": "женатый/замужняя",
     "support_word": {
-      "Knabe": "юноша",
-      "Sohn": "сын",
-      "Bruder": "брат",
-      "mit dem Ball": "с мячом"
-    }
-  },
-  {
-    "origin_word": "das Mädchen",
-    "rus_translation": "девочка",
-    "support_word": {
-      "Mädel": "девчонка",
-      "Tochter": "дочь",
-      "Schwester": "сестра",
-      "mit der Puppe": "с куклой"
-    }
-  },
-  {
-    "origin_word": "der Freund",
-    "rus_translation": "друг",
-    "support_word": {
-      "Kumpel": "приятель",
+      "Ehe": "брак",
       "Partner": "партнер",
-      "Gefährte": "спутник",
-      "mit dem Lächeln": "с улыбкой"
+      "Ring": "кольцо",
+      "mit dem Trauschein": "с свидетельством о браке"
     }
   },
   {
-    "origin_word": "der Gast",
-    "rus_translation": "гость",
+    "origin_word": "die Sache",
+    "rus_translation": "вещь; дело",
     "support_word": {
-      "Besucher": "посетитель",
-      "Kunde": "клиент",
-      "Reisender": "путешественник",
-      "mit dem Koffer": "с чемоданом"
+      "Ding": "предмет",
+      "Gegenstand": "объект",
+      "Angelegenheit": "задача",
+      "mit dem Sinn": "с смыслом"
     }
   },
   {
-    "origin_word": "die Familie",
-    "rus_translation": "семья",
+    "origin_word": "der Kugelschreiber",
+    "rus_translation": "ручка",
     "support_word": {
-      "Verwandte": "родственники",
-      "Haushalt": "домохозяйство",
-      "Gruppe": "группа",
-      "mit dem Stammbaum": "с родословной"
+      "Schreiben": "писать",
+      "Tinte": "чернила",
+      "Mine": "стержень",
+      "mit dem Clip": "с зажимом"
     }
   },
   {
-    "origin_word": "die Eltern",
-    "rus_translation": "родители",
+    "origin_word": "das Buch",
+    "rus_translation": "книга",
     "support_word": {
-      "Vater": "отец",
-      "Mutter": "мать",
-      "Erziehungsberechtigte": "опекуны",
-      "mit dem Kind": "с ребенком"
+      "Lesen": "читать",
+      "Seite": "страница",
+      "Autor": "автор",
+      "mit dem Titel": "с названием"
     }
   },
   {
-    "origin_word": "der Vater",
-    "rus_translation": "отец",
+    "origin_word": "das Schach",
+    "rus_translation": "шахматы",
     "support_word": {
-      "Papa": "папа",
-      "Sohn": "сын",
-      "Onkel": "дядя",
-      "mit dem Schnurrbart": "с усами"
+      "Spiel": "игра",
+      "Brett": "доска",
+      "Figur": "фигура",
+      "mit dem Schachmatt": "с шахом и матом"
     }
   },
   {
-    "origin_word": "die Mutter",
-    "rus_translation": "мать",
+    "origin_word": "das Telefon",
+    "rus_translation": "телефон",
     "support_word": {
-      "Mama": "мама",
-      "Tochter": "дочь",
-      "Tante": "тетя",
-      "mit dem Schal": "с шарфом"
+      "Kommunikation": "общение",
+      "Anruf": "звонок",
+      "Nummer": "номер",
+      "mit dem Hörer": "с трубкой"
     }
   },
   {
-    "origin_word": "der Sohn",
-    "rus_translation": "сын",
+    "origin_word": "die Uhr",
+    "rus_translation": "часы",
     "support_word": {
-      "Kind": "ребенок",
-      "Bruder": "брат",
-      "Neffe": "племянник",
-      "mit dem Fahrrad": "на велосипеде"
+      "Zeit": "время",
+      "Zifferblatt": "циферблат",
+      "Zeiger": "стрелка",
+      "mit dem Armband": "с ремешком"
     }
   },
   {
-    "origin_word": "die Tochter",
-    "rus_translation": "дочь",
+    "origin_word": "der Kamm",
+    "rus_translation": "расчёска",
     "support_word": {
-      "Kind": "ребенок",
-      "Schwester": "сестра",
-      "Nichte": "племянница",
-      "mit dem Buch": "с книгой"
+      "Haar": "волосы",
+      "Zahn": "зуб",
+      "Friseur": "парикмахер",
+      "mit dem Griff": "с ручкой"
     }
   },
   {
-    "origin_word": "der Großvater",
-    "rus_translation": "дед...",
+    "origin_word": "der Fernseher",
+    "rus_translation": "телевизор",
     "support_word": {
-      "Opa": "дедушка",
-      "Vater": "отец",
-      "Großonkel": "дядя",
-      "mit dem Stock": "с тростью"
+      "Bild": "изображение",
+      "Ton": "звук",
+      "Kanal": "канал",
+      "mit dem Fernbedienung": "с пультом"
     }
   },
   {
-    "origin_word": "der Schwiegervater",
-    "rus_translation": "тесть/свекор....",
+    "origin_word": "das Bügeleisen",
+    "rus_translation": "утюг",
     "support_word": {
-      "Vater": "отец",
-      "Schwiegersohn": "зять",
-      "Schwager": "шурин",
-      "mit dem Hut": "с шляпой"
+      "Bügeln": "гладить",
+      "Wäsche": "белье",
+      "Hitze": "тепло",
+      "mit dem Dampf": "с паром"
     }
   },
   {
-    "origin_word": "der Onkel",
-    "rus_translation": "дядя",
+    "origin_word": "die Seife",
+    "rus_translation": "мыло",
     "support_word": {
-      "Bruder": "брат",
-      "Vetter": "кузен",
-      "Schwager": "шурин",
-      "mit dem Bart": "с бородой"
+      "Waschen": "мыть",
+      "Schaum": "пена",
+      "Duft": "аромат",
+      "mit dem Wasser": "с водой"
     }
   },
   {
-    "origin_word": "die Tante",
-    "rus_translation": "тетя",
+    "origin_word": "das Radio",
+    "rus_translation": "радио",
     "support_word": {
-      "Schwester": "сестра",
-      "Kusine": "кузина",
-      "Schwägerin": "свояченица",
+      "Hören": "слушать",
+      "Musik": "музыка",
+      "Sender": "станция",
+      "mit dem Lautsprecher": "с динамиком"
+    }
+  },
+  {
+    "origin_word": "die Tasche",
+    "rus_translation": "сумка",
+    "support_word": {
+      "Tragen": "носить",
+      "Sache": "вещь",
+      "Reißverschluss": "молния",
+      "mit dem Henkel": "с ручкой"
+    }
+  },
+  {
+    "origin_word": "gestern",
+    "rus_translation": "вчера",
+    "support_word": {
+      "Tag": "день",
+      "Vergangenheit": "прошлое",
+      "Erinnerung": "воспоминание",
+      "mit dem Datum": "с датой"
+    }
+  },
+  {
+    "origin_word": "heute",
+    "rus_translation": "сегодня",
+    "support_word": {
+      "Tag": "день",
+      "Gegenwart": "настоящее",
+      "Plan": "план",
+      "mit dem Wetter": "с погодой"
+    }
+  },
+  {
+    "origin_word": "morgen",
+    "rus_translation": "завтра",
+    "support_word": {
+      "Tag": "день",
+      "Zukunft": "будущее",
+      "Hoffnung": "надежда",
+      "mit dem Wecker": "с будильником"
+    }
+  },
+  {
+    "origin_word": "das Fest",
+    "rus_translation": "праздник",
+    "support_word": {
+      "Feier": "празднование",
+      "Freude": "радость",
+      "Gäste": "гости",
       "mit dem Kuchen": "с тортом"
     }
   },
   {
-    "origin_word": "der Bruder",
-    "rus_translation": "брат",
+    "origin_word": "das Mal",
+    "rus_translation": "раз",
     "support_word": {
-      "Sohn": "сын",
-      "Onkel": "дядя",
-      "Vetter": "кузен",
-      "mit dem Hund": "с собакой"
+      "Zahl": "число",
+      "Wiederholung": "повторение",
+      "Erfahrung": "опыт",
+      "mit dem Beispiel": "с примером"
     }
   },
   {
-    "origin_word": "die Schwester",
-    "rus_translation": "сестра",
+    "origin_word": "der Tag",
+    "rus_translation": "день",
     "support_word": {
-      "weibliche Verwandte": "женский родственник",
-      "Tochter der Eltern": "дочь родителей",
-      "Schwesterherz": "сестренка",
-      "mit demselben Blut": "с одной кровью"
+      "Zeit": "время",
+      "Licht": "свет",
+      "Sonne": "солнце",
+      "mit dem Morgen": "с утром"
     }
   },
-  { "origin_word": "die Kusine", "rus_translation": "двоюродная сестра", "support_word": { "Tochter des Onkels": "дочь дяди", "Tochter der Tante": "дочь тети", "Verwandte zweiten Grades": "родственник второй степени", "mit demselben Großeltern": "с одними дедушкой и бабушкой" } }, { "origin_word": "die Arbeit", "rus_translation": "работа", "support_word": { "Tätigkeit": "деятельность", "Beruf": "профессия", "Lohn": "заработок", "mit dem Ziel": "с целью" } }, { "origin_word": "der Geschäftsmann", "rus_translation": "бизнесмен", "support_word": { "Unternehmer": "предприниматель", "Handel": "торговля", "Geld": "деньги", "mit dem Anzug": "в костюме" } }, { "origin_word": "der Lehrer", "rus_translation": "учитель", "support_word": { "Pädagoge": "педагог", "Schule": "школа", "Wissen": "знания", "mit den Schülern": "с учениками" } }, { "origin_word": "der Fahrer", "rus_translation": "водитель", "support_word": { "Lenker": "рулевой", "Auto": "автомобиль", "Fahrt": "поездка", "mit dem Führerschein": "с водительским удостоверением" } }, { "origin_word": "der Arbeiter", "rus_translation": "рабочий", "support_word": { "Handwerker": "ремесленник", "Fabrik": "фабрика", "Produktion": "производство", "mit den Werkzeugen": "с инструментами" } }, { "origin_word": "der Ingenieur", "rus_translation": "инженер", "support_word": { "Techniker": "техник", "Konstruktion": "конструкция", "Projekt": "проект", "mit dem Diplom": "с дипломом" } }, { "origin_word": "der Arzt", "rus_translation": "врач", "support_word": { "Mediziner": "медик", "Krankenhaus": "больница", "Gesundheit": "здоровье", "mit dem Stethoskop": "со стетоскопом" } }, { "origin_word": "die Krankenschwester", "rus_translation": "медсестра", "support_word": { "Pflegerin": "сиделка", "Arzt": "врач", "Patienten": "пациенты", "mit der Uniform": "в форме" } }, { "origin_word": "der Verkäufer", "rus_translation": "продавец", "support_word": { "Händler": "торговец", "Geschäft": "магазин", "Ware": "товар", "mit dem Lächeln": "с улыбкой" } }, { "origin_word": "der Buchhalter", "rus_translation": "бухгалтер", "support_word": { "Rechner": "калькулятор", "Firma": "фирма", "Buchführung": "бухгалтерский учет", "mit den Zahlen": "с цифрами" } }, { "origin_word": "der Maler", "rus_translation": "художник", "support_word": { "Künstler": "искусствовед", "Bild": "картина", "Farbe": "цвет", "mit dem Pinsel": "с кистью" } }, { "origin_word": "der Journalist", "rus_translation": "журналист", "support_word": { "Reporter": "репортер", "Zeitung": "газета", "Nachrichten": "новости", "mit dem Mikrofon": "с микрофоном" } }, { "origin_word": "der Kellner", "rus_translation": "официант", "support_word": { "Bedienung": "обслуживание", "Restaurant": "ресторан", "Speise": "блюдо", "mit dem Tablett": "с подносом" } }, { "origin_word": "der Musiker", "rus_translation": "музыкант", "support_word": { "Klangkünstler": "звуковой художник", "Musik": "музыка", "Instrument": "инструмент", "mit dem Talent": "с талантом" } }, { "origin_word": "der Schauspieler", "rus_translation": "актер", "support_word": { "Darsteller": "исполнитель", "Theater": "театр", "Rolle": "роль", "mit dem Applaus": "с аплодисментами" } }, { "origin_word": "der Schüler", "rus_translation": "школьник, ученик", "support_word": { "Lerner": "учащийся", "Lehrer": "учитель", "Schule": "школа", "mit dem Rucksack": "с рюкзаком" } }, { "origin_word": "der Student", "rus_translation": "студент", "support_word": { "Hochschüler": "высшеклассник", "Professor": "профессор", "Universität": "университет", "mit dem Diplom": "с дипломом" } }, { "origin_word": "das Land", "rus_translation": "страна; сельская местность", "support_word": { "Staat": "государство", "Flagge": "флаг", "Hauptstadt": "столица", "mit der Grenze": "с границей" } }, { "origin_word": "Deutschland", "rus_translation": "Германия", "support_word": { "Bundesrepublik": "федеративная республика", "Berlin": "Берлин", "Bier": "пиво", "mit dem Adler": "с орлом" } }, { "origin_word": "das Tier", "rus_translation": "животное", "support_word": { "Lebewesen": "живое существо", "Fell": "шерсть", "Pfote": "лапа", "mit dem Schwanz": "с хвостом" } }, { "origin_word": "die Katze", "rus_translation": "кошка", "support_word": { "Haustier": "домашнее животное", "Maus": "мышь", "Miau": "мяу", "mit den Schnurrhaaren": "с усами" } }, { "origin_word": "der Hund", "rus_translation": "собака", "support_word": { "Haustier": "домашнее животное", "Knochen": "кость", "Wau": "гав", "mit der Leine": "с поводком" } }, { "origin_word": "der Vogel", "rus_translation": "птица", "support_word": { "Flieger": "летун", "Flügel": "крыло", "Zwitschern": "чирикать", "mit dem Schnabel": "с клювом" } }
-  , { "origin_word": "die Kuh", "rus_translation": "корова", "support_word": { "Milch": "молоко", "Gras": "трава", "Muh": "му-му", "mit den Hörnern": "с рогами" } }, { "origin_word": "das Pferd", "rus_translation": "лошадь", "support_word": { "Reiten": "езда верхом", "Hufe": "копыта", "Wiehern": "ржать", "mit dem Schweif": "с хвостом" } }, { "origin_word": "der Bär", "rus_translation": "медведь", "support_word": { "Wald": "лес", "Honig": "мёд", "Brummen": "бурчать", "mit dem Fell": "с шерстью" } }, { "origin_word": "die Maus", "rus_translation": "мышь", "support_word": { "Käse": "сыр", "Katze": "кошка", "Piepsen": "пищать", "mit den Ohren": "с ушами" } }, { "origin_word": "das Schwein", "rus_translation": "свинья", "support_word": { "Schlamm": "грязь", "Wurst": "колбаса", "Grunzen": "хрюкать", "mit dem Ringelschwanz": "с крючковатым хвостом" } }, { "origin_word": "die Stadt", "rus_translation": "город", "support_word": { "Häuser": "дома", "Menschen": "люди", "Lärm": "шум", "mit dem Rathaus": "с ратушей" } }, { "origin_word": "die Schule", "rus_translation": "школа", "support_word": { "Lehrer": "учитель", "Schüler": "ученик", "Lernen": "учиться", "mit dem Klassenzimmer": "с классной комнатой" } }, { "origin_word": "das Theater", "rus_translation": "театр", "support_word": { "Schauspieler": "актер", "Zuschauer": "зритель", "Vorstellung": "спектакль", "mit der Bühne": "со сценой" } }, { "origin_word": "die Straße", "rus_translation": "улица; дорога", "support_word": { "Auto": "автомобиль", "Ampel": "светофор", "Fahren": "ездить", "mit dem Zebrastreifen": "с пешеходным переходом" } }, { "origin_word": "der Platz", "rus_translation": "площадь; место", "support_word": { "Denkmal": "памятник", "Brunnen": "фонтан", "Treffen": "встречаться", "mit dem Baum": "с деревом" } }, { "origin_word": "das Haus", "rus_translation": "дом", "support_word": { "Wohnen": "жить", "Familie": "семья", "Dach": "крыша", "mit der Tür": "с дверью" } }, { "origin_word": "die Kirche", "rus_translation": "церковь", "support_word": { "Gott": "бог", "Gebet": "молитва", "Glocke": "колокол", "mit dem Kreuz": "с крестом" } }, { "origin_word": "der Fluss", "rus_translation": "река", "support_word": { "Wasser": "вода", "Brücke": "мост", "Fließen": "течь", "mit dem Ufer": "с берегом" } }, { "origin_word": "das Cafe", "rus_translation": "кафе", "support_word": { "Kaffee": "кофе", "Kuchen": "торт", "Plaudern": "болтать", "mit dem Tisch": "со столом" } }, { "origin_word": "das Hotel", "rus_translation": "гостиница", "support_word": { "Zimmer": "номер", "Rezeption": "рецепция", "Übernachten": "ночевать", "mit dem Bett": "с кроватью" } }, { "origin_word": "der Garten", "rus_translation": "сад", "support_word": { "Blume": "цветок", "Baum": "дерево", "Pflanzen": "сажать", "mit dem Zaun": "с забором" } }, { "origin_word": "der Park", "rus_translation": "парк", "support_word": { "Gras": "трава", "Bank": "скамейка", "Spazieren": "гулять", "mit dem Teich": "с прудом" } }, { "origin_word": "die Bank", "rus_translation": "банк", "support_word": { "Geld": "деньги", "Konto": "счет", "Zinsen": "проценты", "mit dem Schalter": "с кассой" } }, { "origin_word": "die Haltestelle", "rus_translation": "остановка", "support_word": { "Bus": "автобус", "Straßenbahn": "трамвай", "Warten": "ждать", "mit dem Fahrplan": "с расписанием" } }, { "origin_word": "das Kino", "rus_translation": "кинотеатр", "support_word": { "Film": "фильм", "Popcorn": "попкорн", "Anschauen": "смотреть", "mit dem Sitz": "с креслом" } }, { "origin_word": "die Brücke", "rus_translation": "мост", "support_word": { "Fluss": "река", "Überqueren": "переходить", "Verbinden": "соединять", "mit dem Geländer": "с перилами" } }, { "origin_word": "die Kreuzung", "rus_translation": "перекрёсток", "support_word": { "Straße": "улица", "Ampel": "светофор", "Abbiegen": "поворачивать", "mit dem Schild": "с указателем" } }, { "origin_word": "der Wald", "rus_translation": "лес", "support_word": { "Baum": "дерево", "Tier": "животное", "Wandern": "ходить по лесу", "mit dem Pilz": "с грибом" } }, { "origin_word": "das Krankenhaus", "rus_translation": "больница", "support_word": { "Arzt": "врач", "Patient": "пациент", "Heilen": "лечить", "mit dem Krankenwagen": "со скорой помощью" } }, { "origin_word": "der Markt", "rus_translation": "рынок", "support_word": { "Ware": "товар", "Verkäufer": "продавец", "Kaufen": "покупать", "mit dem Stand": "с ларьком" } }, { "origin_word": "die Polizei", "rus_translation": "полиция", "support_word": { "Gesetz": "закон", "Verbrecher": "преступник", "Festnehmen": "задерживать", "mit der Pistole": "с пистолетом" } }, { "origin_word": "die Post", "rus_translation": "почта", "support_word": { "Brief": "письмо", "Marke": "марка", "Schicken": "отправлять", "mit dem Briefkasten": "с почтовым ящиком" } }
-  ,{ "origin_word": "der Bahnhof", "rus_translation": "станция, вокзал", "support_word": { "Zug": "поезд", "Gleis": "путь", "Fahrplan": "расписание", "mit dem Bahnsteig": "с платформой" } }, { "origin_word": "das Zentrum", "rus_translation": "центр", "support_word": { "Stadt": "город", "Hauptstraße": "главная улица", "Einkaufen": "шопинг", "mit dem Rathaus": "с ратушей" } }, { "origin_word": "das Geschäft", "rus_translation": "магазин", "support_word": { "Verkaufen": "продавать", "Kunden": "покупатели", "Regal": "полка", "mit der Kasse": "с кассой" } }, { "origin_word": "der Berg", "rus_translation": "гора", "support_word": { "Höhe": "высота", "Wandern": "поход", "Aussicht": "вид", "mit dem Gipfel": "с вершиной" } }, { "origin_word": "die Wohnung", "rus_translation": "квартира", "support_word": { "Mieten": "снимать", "Zimmer": "комната", "Balkon": "балкон", "mit der Tür": "с дверью" } }, { "origin_word": "die Küche", "rus_translation": "кухня", "support_word": { "Essen": "еда", "Kochen": "готовить", "Herd": "плита", "mit dem Schrank": "с шкафом" } }, { "origin_word": "der Balkon", "rus_translation": "балкон", "support_word": { "Blumen": "цветы", "Terrasse": "терраса", "Erholen": "отдыхать", "mit dem Geländer": "с перилами" } }, { "origin_word": "das Badezimmer", "rus_translation": "ванная", "support_word": { "Baden": "купаться", "Wasser": "вода", "Spiegel": "зеркало", "mit der Dusche": "с душем" } }, { "origin_word": "die Dusche", "rus_translation": "душ", "support_word": { "Duschen": "принимать душ", "Wasser": "вода", "Seife": "мыло", "mit dem Vorhang": "с занавеской" } }, { "origin_word": "die Toilette", "rus_translation": "туалет", "support_word": { "WC": "унитаз", "Papier": "бумага", "Spülen": "смывать", "mit dem Deckel": "с крышкой" } }, { "origin_word": "der Fußboden", "rus_translation": "пол", "support_word": { "Boden": "поверхность", "Teppich": "ковер", "Wischen": "мыть", "mit den Fliesen": "с плиткой" } }, { "origin_word": "die Etage", "rus_translation": "этаж", "support_word": { "Stockwerk": "уровень", "Treppe": "лестница", "Aufzug": "лифт", "mit der Nummer": "с номером" } }, { "origin_word": "der Flur", "rus_translation": "коридор", "support_word": { "Gang": "проход", "Schuh": "обувь", "Garderobe": "гардероб", "mit dem Spiegel": "с зеркалом" } }, { "origin_word": "das Schlafzimmer", "rus_translation": "спальня", "support_word": { "Schlafen": "спать", "Bett": "кровать", "Wecker": "будильник", "mit dem Schrank": "с шкафом" } }, { "origin_word": "das Wohnzimmer", "rus_translation": "зал", "support_word": { "Wohnen": "жить", "Sofa": "диван", "Fernseher": "телевизор", "mit dem Tisch": "со столом" } }, { "origin_word": "die Tür", "rus_translation": "дверь", "support_word": { "Öffnen": "открывать", "Schließen": "закрывать", "Klingel": "звонок", "mit dem Griff": "с ручкой" } }, { "origin_word": "das Fenster", "rus_translation": "окно", "support_word": { "Sehen": "смотреть", "Licht": "свет", "Vorhang": "штора", "mit dem Glas": "со стеклом" } }, { "origin_word": "der Schlüssel", "rus_translation": "ключ", "support_word": { "Schloss": "замок", "Aufschließen": "отпирать", "Anhänger": "брелок", "mit dem Bart": "с зубцами" } }, { "origin_word": "das Bett", "rus_translation": "кровать", "support_word": { "Liegen": "лежать", "Decke": "одеяло", "Kissen": "подушка", "mit dem Laken": "с простыней" } }, { "origin_word": "die Decke", "rus_translation": "одеяло; cкатерть; потолок", "support_word": { "Zudecken": "накрывать", "Stoff": "ткань", "Warm": "теплый", "mit dem Muster": "с узором" } }, { "origin_word": "das Kissen", "rus_translation": "подушка", "support_word": { "Kopf": "голова", "Schlafen": "спать", "Weich": "мягкий", "mit dem Bezug": "с наволочкой" } }, { "origin_word": "der Tisch", "rus_translation": "стол", "support_word": { "Essen": "есть", "Arbeiten": "работать", "Holz": "дерево", "mit den Beinen": "с ножками" } }, { "origin_word": "der Stuhl", "rus_translation": "стул", "support_word": { "Sitzen": "сидеть", "Lehne": "спинка", "Polster": "подушка", "mit den Armen": "с подлокотниками" } }, { "origin_word": "der Sessel", "rus_translation": "кресло", "support_word": { "Sitzen": "сидеть", "Lesen": "читать", "Bequem": "удобный", "mit der Fußstütze": "с подножкой" } }, { "origin_word": "der Kühlschrank", "rus_translation": "холодильник", "support_word": { "Kühlen": "охлаждать", "Lebensmittel": "продукты", "Tür": "дверь", "mit dem Licht": "со светом" } }, { "origin_word": "das Sofa", "rus_translation": "диван", "support_word": { "Liegen": "лежать", "Erholen": "отдыхать", "Kissen": "подушка", "mit der Decke": "с одеялом" } }, { "origin_word": "der Spiegel", "rus_translation": "зеркало", "support_word": { "Spiegeln": "отражать", "Gesicht": "лицо", "Rahmen": "рамка", "mit dem Glas": "со стеклом" } }, { "origin_word": "das Essen", "rus_translation": "еда", "support_word": { "Essen": "есть", "Hunger": "голод", "Geschmack": "вкус", "mit dem Teller": "с тарелкой" } }
-]
+  {
+    "origin_word": "der Morgen",
+    "rus_translation": "утро",
+    "support_word": {
+      "Tageszeit": "время суток",
+      "Anfang": "начало",
+      "Frühstück": "завтрак",
+      "mit dem Kaffee": "с кофе"
+    }
+  },
+  {
+    "origin_word": "der Abend",
+    "rus_translation": "вечер",
+    "support_word": {
+      "Tageszeit": "время суток",
+      "Ende": "конец",
+      "Abendessen": "ужин",
+      "mit dem Mond": "с луной"
+    }
+  },
+  {
+    "origin_word": "die Nacht",
+    "rus_translation": "ночь",
+    "support_word": {
+      "Tageszeit": "время суток",
+      "Dunkelheit": "тьма",
+      "Schlaf": "сон",
+      "mit dem Traum": "со сном"
+    }
+  },
+  {
+    "origin_word": "der Montag",
+    "rus_translation": "понедельник",
+    "support_word": {
+      "Wochentag": "день недели",
+      "Erster": "первый",
+      "Arbeit": "работа",
+      "mit dem Stress": "со стрессом"
+    }
+  },
+  {
+    "origin_word": "der Dienstag",
+    "rus_translation": "вторник",
+    "support_word": {
+      "Wochentag": "день недели",
+      "Zweiter": "второй",
+      "Sport": "спорт",
+      "mit dem Training": "с тренировкой"
+    }
+  },
+  {
+    "origin_word": "der Mittwoch",
+    "rus_translation": "среда",
+    "support_word": {
+      "Wochentag": "день недели",
+      "Dritter": "третий",
+      "Mitte": "середина",
+      "mit dem Kino": "с кино"
+    }
+  },
+  {
+    "origin_word": "der Donnerstag",
+    "rus_translation": "четверг",
+    "support_word": {
+      "Wochentag": "день недели",
+      "Vierter": "четвертый",
+      "Lernen": "учеба",
+      "mit dem Test": "с тестом"
+    }
+  },
+  {
+    "origin_word": "der Freitag",
+    "rus_translation": "пятница",
+    "support_word": {
+      "Wochentag": "день недели",
+      "Fünfter": "пятый",
+      "Freizeit": "свободное время",
+      "mit dem Freund": "с другом"
+    }
+  },
+  {
+    "origin_word": "der Samstag",
+    "rus_translation": "суббота",
+    "support_word": {
+      "Wochentag": "день недели",
+      "Sechster": "шестой",
+      "Wochenende": "выходные",
+      "mit dem Einkauf": "с покупками"
+    }
+  },
+  {
+    "origin_word": "der Sonntag",
+    "rus_translation": "воскресенье",
+    "support_word": {
+      "Wochentag": "день недели",
+      "Siebter": "седьмой",
+      "Wochenende": "выходные",
+      "mit dem Buch": "с книгой"
+    }
+  },
+  {
+    "origin_word": "der Monat",
+    "rus_translation": "месяц",
+    "support_word": {
+      "Zeit": "время",
+      "Kalender": "календарь",
+      "Jahreszeit": "время года",
+      "mit dem Namen": "с названием"
+    }
+  },
+  {
+    "origin_word": "der Januar",
+    "rus_translation": "январь",
+    "support_word": {
+      "Monat": "месяц",
+      "Erster": "первый",
+      "Winter": "зима",
+      "mit dem Schnee": "со снегом"
+    }
+  },
+  {
+    "origin_word": "der Februar",
+    "rus_translation": "февраль",
+    "support_word": {
+      "Monat": "месяц",
+      "Zweiter": "второй",
+      "Winter": "зима",
+      "mit dem Valentinstag": "с днем святого Валентина"
+    }
+  },
+  {
+    "origin_word": "der Pfirsich",
+    "rus_translation": "персик",
+    "support_word": {
+      "Frucht": "фрукт",
+      "Süß": "сладкий",
+      "Kern": "косточка",
+      "mit dem Flaum": "с пушком"
+    }
+  },
+  {
+    "origin_word": "die Tasse",
+    "rus_translation": "чашка",
+    "support_word": {
+      "Geschirr": "посуда",
+      "Trinken": "пить",
+      "Henkel": "ручка",
+      "mit dem Kaffee": "с кофе"
+    }
+  },
+  {
+    "origin_word": "das Glas",
+    "rus_translation": "стакан",
+    "support_word": {
+      "Geschirr": "посуда",
+      "Trinken": "пить",
+      "Glas": "стекло",
+      "mit dem Wasser": "с водой"
+    }
+  },
+  {
+    "origin_word": "der Teller",
+    "rus_translation": "тарелка",
+    "support_word": {
+      "Geschirr": "посуда",
+      "Essen": "есть",
+      "Rund": "круглый",
+      "mit dem Essen": "с едой"
+    }
+  },
+  {
+    "origin_word": "der Löffel",
+    "rus_translation": "ложка",
+    "support_word": {
+      "Besteck": "столовый прибор",
+      "Essen": "есть",
+      "Löffeln": "ложить",
+      "mit dem Suppe": "с супом"
+    }
+  },
+  {
+    "origin_word": "die Gabel",
+    "rus_translation": "вилка",
+    "support_word": {
+      "Besteck": "столовый прибор",
+      "Essen": "есть",
+      "Zinken": "зубцы",
+      "mit dem Salat": "с салатом"
+    }
+  },
+  {
+    "origin_word": "das Messer",
+    "rus_translation": "нож",
+    "support_word": {
+      "Besteck": "столовый прибор",
+      "Essen": "есть",
+      "Schneiden": "резать",
+      "mit dem Brot": "с хлебом"
+    }
+  },
+  {
+    "origin_word": "die Untertasse",
+    "rus_translation": "блюдце",
+    "support_word": {
+      "Geschirr": "посуда",
+      "Tasse": "чашка",
+      "Klein": "маленький",
+      "mit dem Keks": "с печеньем"
+    }
+  },
+  {
+    "origin_word": "die Flasche",
+    "rus_translation": "бутылка",
+    "support_word": {
+      "Behälter": "емкость",
+      "Trinken": "пить",
+      "Korken": "пробка",
+      "mit dem Wein": "с вином"
+    }
+  },
+  {
+    "origin_word": "die Serviette",
+    "rus_translation": "салфетка",
+    "support_word": {
+      "Stoff": "ткань",
+      "Essen": "есть",
+      "Wischen": "вытирать",
+      "mit dem Mund": "с ртом"
+    }
+  },
+  {
+    "origin_word": "das Frühstück",
+    "rus_translation": "завтрак",
+    "support_word": {
+      "Essen": "есть",
+      "Morgen": "утро",
+      "Brot": "хлеб",
+      "mit dem Ei": "с яйцом"
+    }
+  },
+  {
+    "origin_word": "das Mittagessen",
+    "rus_translation": "обед",
+    "support_word": {
+      "Essen": "есть",
+      "Mittag": "полдень",
+      "Fleisch": "мясо",
+      "mit dem Kartoffel": "с картошкой"
+    }
+  },
+  {
+    "origin_word": "das Abendessen",
+    "rus_translation": "ужин",
+    "support_word": {
+      "Essen": "есть",
+      "Abend": "вечер",
+      "Käse": "сыр",
+      "mit dem Wein": "с вином"
+    }
+  },
+  {
+    "origin_word": "das Flugzeug",
+    "rus_translation": "самолет",
+    "support_word": {
+      "Fahrzeug": "транспорт",
+      "Fliegen": "летать",
+      "Flügel": "крылья",
+      "mit dem Pilot": "с пилотом"
+    }
+  },
+  {
+    "origin_word": "das Auto",
+    "rus_translation": "автомобиль",
+    "support_word": {
+      "Fahrzeug": "транспорт",
+      "Fahren": "ездить",
+      "Rad": "колесо",
+      "mit dem Lenkrad": "с рулем"
+    }
+  },
+  {
+    "origin_word": "die Straßenbahn",
+    "rus_translation": "трамвай",
+    "support_word": {
+      "Fahrzeug": "транспорт",
+      "Fahren": "ездить",
+      "Schiene": "рельс",
+      "mit dem Fahrer": "с водителем"
+    }
+  },
+  {
+    "origin_word": "der Bus",
+    "rus_translation": "автобус",
+    "support_word": {
+      "Fahrzeug": "транспорт",
+      "Fahren": "ездить",
+      "Passagier": "пассажир",
+      "mit dem Ticket": "с билетом"
+    }
+  },
+  {
+    "origin_word": "der Zug",
+    "rus_translation": "поезд",
+    "support_word": {
+      "Fahrzeug": "транспорт",
+      "Fahren": "ездить",
+      "Waggon": "вагон",
+      "mit dem Schaffner": "с кондуктором"
+    }
+  },
+  {
+    "origin_word": "das Fahrrad",
+    "rus_translation": "велосипед",
+    "support_word": {
+      "Fahrzeug": "транспорт",
+      "Fahren": "ездить",
+      "Pedal": "педаль",
+      "mit dem Helm": "с шлемом"
+    }
+  },
+  {
+    "origin_word": "die Zeit",
+    "rus_translation": "время",
+    "support_word": {
+      "Dauer": "продолжительность",
+      "Uhr": "часы",
+      "Kalender": "календарь",
+      "mit dem Moment": "с моментом"
+    }
+  },
+  {
+    "origin_word": "das Jahr",
+    "rus_translation": "год",
+    "support_word": {
+      "Zeit": "время",
+      "Monat": "месяц",
+      "Jahreszeit": "время года",
+      "mit dem Geburtstag": "с днем рождения"
+    }
+  },
+  {
+    "origin_word": "die Woche",
+    "rus_translation": "неделя",
+    "support_word": {
+      "Zeit": "время",
+      "Tag": "день",
+      "Wochentag": "день недели",
+      "mit dem Wochenende": "с выходными"
+    }
+  },
+  {
+    "origin_word": "die Stunde",
+    "rus_translation": "час",
+    "support_word": {
+      "Zeit": "время",
+      "Minute": "минута",
+      "Sekunde": "секунда",
+      "mit dem Zeiger": "со стрелкой"
+    }
+  },
+  {
+    "origin_word": "die Minute",
+    "rus_translation": "минута",
+    "support_word": {
+      "Zeit": "время",
+      "Sekunde": "секунда",
+      "Stunde": "час",
+      "mit dem Zifferblatt": "с циферблатом"
+    }
+  },
+  {
+    "origin_word": "die Nudeln",
+    "rus_translation": "лапша",
+    "support_word": {
+      "Essen": "еда",
+      "Teig": "тесто",
+      "Kochen": "варить",
+      "mit dem Soße": "с соусом"
+    }
+  },
+  {
+    "origin_word": "das Rindfleisch",
+    "rus_translation": "говядина",
+    "support_word": {
+      "Essen": "еда",
+      "Fleisch": "мясо",
+      "Kuh": "корова",
+      "mit dem Steak": "с стейком"
+    }
+  },
+  {
+    "origin_word": "das Schweinefleisch",
+    "rus_translation": "свинина",
+    "support_word": {
+      "Essen": "еда",
+      "Fleisch": "мясо",
+      "Schwein": "свинья",
+      "mit dem Schnitzel": "с отбивной"
+    }
+  },
+  {
+    "origin_word": "das Hähnchen",
+    "rus_translation": "курица (мясо)",
+    "support_word": {
+      "Essen": "еда",
+      "Fleisch": "мясо",
+      "Huhn": "курица (птица)",
+      "mit dem Flügel": "с крылышком"
+    }
+  },
+  {
+    "origin_word": "das Kotelett",
+    "rus_translation": "котлета",
+    "support_word": {
+      "Essen": "еда",
+      "Fleisch": "мясо",
+      "Braten": "жарить",
+      "mit dem Brot": "с хлебом"
+    }
+  },
+  {
+    "origin_word": "die Zitrone",
+    "rus_translation": "лимон",
+    "support_word": {
+      "Frucht": "фрукт",
+      "Gelb": "желтый",
+      "Sauer": "кислый",
+      "mit dem Saft": "с соком"
+    }
+  },
+  {
+    "origin_word": "die Erbse",
+    "rus_translation": "горох",
+    "support_word": {
+      "Gemüse": "овощ",
+      "Grün": "зеленый",
+      "Rund": "круглый",
+      "mit dem Schote": "с стручком"
+    }
+  },
+  {
+    "origin_word": "das Brötchen",
+    "rus_translation": "булочка",
+    "support_word": {
+      "Essen": "еда",
+      "Brot": "хлеб",
+      "Backen": "печь",
+      "mit dem Mohn": "с маком"
+    }
+  },
+  {
+    "origin_word": "der Fisch",
+    "rus_translation": "рыба",
+    "support_word": {
+      "Tier": "животное",
+      "Wasser": "вода",
+      "Schwimmen": "плавать",
+      "mit dem Gräte": "с костью"
+    }
+  },
+  {
+    "origin_word": "die Pirogge",
+    "rus_translation": "пирожок",
+    "support_word": {
+      "Essen": "еда",
+      "Teig": "тесто",
+      "Füllung": "начинка",
+      "mit dem Fleisch": "с мясом"
+    }
+  },
+  {
+    "origin_word": "das Konfekt",
+    "rus_translation": "конфета",
+    "support_word": {
+      "Süßigkeit": "сладость",
+      "Schokolade": "шоколад",
+      "Form": "форма",
+      "mit dem Nougat": "с нугой"
+    }
+  },
+  {
+    "origin_word": "das Eis",
+    "rus_translation": "лёд; мороженое",
+    "support_word": {
+      "Wasser": "вода",
+      "Kälte": "холод",
+      "Schmelzen": "таять",
+      "mit dem Löffel": "с ложкой"
+    }
+  },
+  {
+    "origin_word": "die Nuss",
+    "rus_translation": "орех",
+    "support_word": {
+      "Frucht": "фрукт",
+      "Schale": "скорлупа",
+      "Kern": "ядро",
+      "mit dem Knacken": "с треском"
+    }
+  },
+  {
+    "origin_word": "das Ei",
+    "rus_translation": "яйцо",
+    "support_word": {
+      "Essen": "еда",
+      "Huhn": "курица",
+      "Schale": "скорлупа",
+      "mit dem Dotter": "с желтком"
+    }
+  },
+  {
+    "origin_word": "die Kartoffeln",
+    "rus_translation": "картофель",
+    "support_word": {
+      "Knolle": "клубень",
+      "Erdapfel": "земляной яблоко",
+      "Beilage": "гарнир",
+      "mit der Schale": "с кожурой"
+    }
+  },
+  {
+    "origin_word": "der Salat",
+    "rus_translation": "салат",
+    "support_word": {
+      "Gemüse": "овощи",
+      "Blattgemüse": "листовые овощи",
+      "Beilage": "гарнир",
+      "mit dem Dressing": "с заправкой"
+    }
+  },
+  {
+    "origin_word": "die Tomate",
+    "rus_translation": "помидор",
+    "support_word": {
+      "Gemüsefrucht": "овощной плод",
+      "Nachtschattengewächs": "паслёновые",
+      "mit der Schale": "с кожурой",
+      "rot": "красный"
+    }
+  },
+  {
+    "origin_word": "die Gurke",
+    "rus_translation": "огурец",
+    "support_word": {
+      "Gemüse": "овощи",
+      "Salatgurke": "салатный огурец",
+      "mit der Schale": "с кожурой",
+      "grün": "зелёный"
+    }
+  },
+  {
+    "origin_word": "der Brei",
+    "rus_translation": "каша",
+    "support_word": {
+      "Getreidebrei": "крупяная каша",
+      "Frühstück": "завтрак",
+      "mit Milch": "с молоком",
+      "warm": "тёплый"
+    }
+  },
+  {
+    "origin_word": "die Suppe",
+    "rus_translation": "суп",
+    "support_word": {
+      "Eintopf": "однокастрюльное блюдо",
+      "Brühe": "бульон",
+      "mit Gemüse": "с овощами",
+      "heiß": "горячий"
+    }
+  },
+  {
+    "origin_word": "das belegte Brötchen",
+    "rus_translation": "бутерброд",
+    "support_word": {
+      "Stulle": "ломтевой хлеб",
+      "Brotzeit": "закуска",
+      "mit Schinken": "с ветчиной",
+      "mit Käse": "с сыром"
+    }
+  },
+  {
+    "origin_word": "das Sodawasser",
+    "rus_translation": "газировка",
+    "support_word": {
+      "Sprudel": "газированная вода",
+      "Erfrischungsgetränk": "освежающий напиток",
+      "mit Zitrone": "с лимоном",
+      "kalt": "холодный"
+    }
+  },
+  {
+    "origin_word": "das Wasser",
+    "rus_translation": "вода",
+    "support_word": {
+      "Flüssigkeit": "жидкость",
+      "Lebenselixier": "жизненный эликсир",
+      "kalt": "холодный",
+      "klar": "чистый"
+    }
+  },
+  {
+    "origin_word": "der Kaffee",
+    "rus_translation": "кофе",
+    "support_word": {
+      "Heißgetränk": "горячий напиток",
+      "Wachmacher": "бодрящее средство",
+      "mit Milch": "с молоком",
+      "schwarz": "чёрный"
+    }
+  },
+  {
+    "origin_word": "der Tee",
+    "rus_translation": "чай",
+    "support_word": {
+      "Aufgussgetränk": "настойка",
+      "Heißgetränk": "горячий напиток",
+      "mit Zitrone": "с лимоном",
+      "aromatisch": "ароматный"
+    }
+  },
+  {
+    "origin_word": "die Milch",
+    "rus_translation": "молоко",
+    "support_word": {
+      "Kuhmilch": "коровье молоко",
+      "Getränk": "напиток",
+      "frisch": "свежий",
+      "weiß": "белый"
+    }
+  },
+  {
+    "origin_word": "der Apfel",
+    "rus_translation": "яблоко",
+    "support_word": {
+      "Obst": "фрукт",
+      "Gesundes": "полезное",
+      "rot": "красный",
+      "saftig": "сочный"
+    }
+  },
+  {
+    "origin_word": "die Trauben",
+    "rus_translation": "виноград",
+    "support_word": {
+      "Frucht": "плод",
+      "Rebe": "лоза",
+      "grün": "зелёный",
+      "süß": "сладкий"
+    }
+  },
+  {
+    "origin_word": "die Orange (оранже)",
+    "rus_translation": "апельсин",
+    "support_word": {
+      "Zitrusfrucht": "цитрусовый плод",
+      "Saft": "сок",
+      "orange": "оранжевый",
+      "sauer": "кислый"
+    }
+  },
+  {
+    "origin_word": "die Ananas",
+    "rus_translation": "ананас",
+    "support_word": {
+      "Tropenfrucht": "тропический фрукт",
+      "Konserven": "консервы",
+      "gelb": "жёлтый",
+      "süß": "сладкий"
+    }
+  },
+  {
+    "origin_word": "die Aprikose",
+    "rus_translation": "абрикос",
+    "support_word": {
+      "Frucht": "плод",
+      "Steinobst": "косточковый фрукт",
+      "orange": "оранжевый",
+      "süß": "сладкий"
+    }
+  },
+      {
+        "origin_word": "das Brot",
+        "rus_translation": "хлеб",
+        "support_word": {
+            "Backware": "выпечка",
+            "Brötchen": "булочка",
+            "Knäckebrot": "хрустящий хлеб",
+            "mit der Butter": "с маслом"
+        }
+    },
+    {
+        "origin_word": "die Butter",
+        "rus_translation": "масло",
+        "support_word": {
+            "Streichfett": "растительное масло",
+            "Margarine": "маргарин",
+            "Schmalz": "сало",
+            "mit dem Brot": "с хлебом"
+        }
+    },
+    {
+        "origin_word": "der Käse",
+        "rus_translation": "сыр",
+        "support_word": {
+            "Hartkäse": "твердый сыр",
+            "Weichkäse": "мягкий сыр",
+            "Schmelzkäse": "плавленый сыр",
+            "mit dem Brot": "с хлебом"
+        }
+    },
+    {
+        "origin_word": "die Wurst",
+        "rus_translation": "колбаса",
+        "support_word": {
+            "Bratwurst": "жареная колбаса",
+            "Schinken": "ветчина",
+            "Salami": "салями",
+            "auf dem Brot": "на хлебе"
+        }
+    },
+    {
+        "origin_word": "das Öl",
+        "rus_translation": "растительное масло; нефть",
+        "support_word": {
+            "Olivenöl": "оливковое масло",
+            "Sonnenblumenöl": "подсолнечное масло",
+            "Motoröl": "моторное масло",
+            "in der Pfanne": "в сковороде"
+        }
+    },
+    {
+        "origin_word": "der Pfeffer",
+        "rus_translation": "горький перец",
+        "support_word": {
+            "Schwarzer Pfeffer": "черный перец",
+            "Weißer Pfeffer": "белый перец",
+            "Roter Pfeffer": "красный перец",
+            "in der Gewürzmühle": "в специях"
+        }
+    },
+    {
+        "origin_word": "das Salz",
+        "rus_translation": "соль",
+        "support_word": {
+            "Meersalz": "морская соль",
+            "Tafelsalz": "столовая соль",
+            "Himalayasalz": "гималайская соль",
+            "auf dem Essen": "на еде"
+        }
+    },
+    {
+        "origin_word": "die Beere",
+        "rus_translation": "ягода",
+        "support_word": {
+            "Himbeere": "малина",
+            "Erdbeere": "клубника",
+            "Blaubeere": "голубика",
+            "in der Fruchtschale": "в фруктовой тарелке"
+        }
+    },
+    {
+        "origin_word": "der Honig",
+        "rus_translation": "мёд",
+        "support_word": {
+            "Blütenhonig": "цветочный мед",
+            "Waldhonig": "лесной мед",
+            "Akazienhonig": "акациевый мед",
+            "auf dem Brot": "на хлебе"
+        }
+    },
+    {
+        "origin_word": "die Marmelade",
+        "rus_translation": "варенье",
+        "support_word": {
+            "Erdbeermarmelade": "клубничное варенье",
+            "Aprikosenmarmelade": "абрикосовое варенье",
+            "Himbeermarmelade": "малиновое варенье",
+            "auf dem Brot": "на хлебе"
+        }
+    },
+    {
+        "origin_word": "der Pilz",
+        "rus_translation": "гриб",
+        "support_word": {
+            "Champignon": "шампиньон",
+            "Steinpilz": "белый гриб",
+            "Pfifferling": "лисичка",
+            "im Wald": "в лесу"
+        }
+    },
+    {
+        "origin_word": "die Zwiebel",
+        "rus_translation": "лук (репчатый)",
+        "support_word": {
+            "Rote Zwiebel": "красный лук",
+            "Weiße Zwiebel": "белый лук",
+            "Schalotte": "шалот",
+            "im Salat": "в салате"
+        }
+    },
+    {
+        "origin_word": "die Banane",
+        "rus_translation": "банан",
+        "support_word": {
+            "Gelbe Banane": "желтый банан",
+            "Grüne Banane": "зеленый банан",
+            "Reife Banane": "спелый банан",
+            "im Obstsalat": "в фруктовом салате"
+        }
+    },
+    {
+        "origin_word": "die Mohrrübe",
+        "rus_translation": "морковь",
+        "support_word": {
+            "Orange Mohrrübe": "оранжевая морковь",
+            "Weiße Mohrrübe": "белая морковь",
+            "Rote Mohrrübe": "красная морковь",
+            "im Gemüsegericht": "в овощном блюде"
+        }
+    },
+    {
+        "origin_word": "die Birne",
+        "rus_translation": "груша",
+        "support_word": {
+            "Saftige Birne": "сочная груша",
+            "Süße Birne": "сладкая груша",
+            "Harte Birne": "жесткая груша",
+            "im Obstsalat": "в фруктовом салате"
+        }
+    },
+      {
+        "origin_word": "die Zuckerrübe",
+        "rus_translation": "свекла",
+        "support_word": {
+            "Runkelrübe": "буряк",
+            "Futterrübe": "кормовая свекла",
+            "Zuckerwurzel": "сахарная свекла",
+            "im Gemüsebeet": "в огороде"
+        }
+    },
+    {
+        "origin_word": "das Obst",
+        "rus_translation": "фрукты",
+        "support_word": {
+            "Apfel": "яблоко",
+            "Banane": "банан",
+            "Orange": "апельсин",
+            "im Obstkorb": "в фруктовой корзине"
+        }
+    },
+    {
+        "origin_word": "die Melone",
+        "rus_translation": "дыня",
+        "support_word": {
+            "Honigmelone": "мускусная дыня",
+            "Wassermelone": "арбуз",
+            "Cantaloupe-Melone": "канталупа",
+            "in der Fruchtsalat": "в фруктовом салате"
+        }
+    },
+    {
+        "origin_word": "die Wassermelone",
+        "rus_translation": "арбуз",
+        "support_word": {
+            "Riesig Wassermelone": "огромный арбуз",
+            "Kernlos Wassermelone": "без косточек арбуз",
+            "Gestreift Wassermelone": "полосатый арбуз",
+            "im Picknick": "на пикнике"
+        }
+    },
+    {
+        "origin_word": "der Kuchen",
+        "rus_translation": "торт; пирог",
+        "support_word": {
+            "Schokoladenkuchen": "шоколадный торт",
+            "Obstkuchen": "фруктовый пирог",
+            "Käsekuchen": "сырный пирог",
+            "auf der Geburtstagsfeier": "на дне рождения"
+        }
+    },
+    {
+        "origin_word": "die Schokolade",
+        "rus_translation": "шоколад",
+        "support_word": {
+            "Milchschokolade": "молочный шоколад",
+            "Dunkle Schokolade": "темный шоколад",
+            "Weiße Schokolade": "белый шоколад",
+            "als Nachtisch": "как десерт"
+        }
+    },
+    {
+        "origin_word": "das Fleisch",
+        "rus_translation": "мясо",
+        "support_word": {
+            "Rindfleisch": "говядина",
+            "Schweinefleisch": "свинина",
+            "Hühnerfleisch": "куриное мясо",
+            "auf dem Grill": "на гриле"
+        }
+    },
+    {
+        "origin_word": "der Zucker",
+        "rus_translation": "сахар",
+        "support_word": {
+            "Brauner Zucker": "коричневый сахар",
+            "Puderzucker": "пудра",
+            "Rohrzucker": "тростниковый сахар",
+            "im Kaffee": "в кофе"
+        }
+    },
+    {
+        "origin_word": "der Reis",
+        "rus_translation": "рис",
+        "support_word": {
+            "Basmati-Reis": "басмати",
+            "Langkornreis": "длиннозерный рис",
+            "Jasminreis": "ясминовый рис",
+            "im asiatischen Gericht": "в азиатском блюде"
+        }
+    }]
 
 
+
+        words_added = 0
 
         for word_data in words_array:
-            word_instance = Word(
-                origin_word=word_data["origin_word"],
-                rus_translation=word_data["rus_translation"],
-                support_word=word_data["support_word"],
-            )
-            word_instance.save()
-        print(len(words_array))
+            origin_word = word_data["origin_word"]
+            if not Word.objects.filter(origin_word=origin_word).exists():
+                word_instance = Word(
+                    origin_word=origin_word,
+                    rus_translation=word_data["rus_translation"],
+                    support_word=word_data["support_word"],
+                )
+                word_instance.save()
+                words_added += 1
+
+        print(f"{words_added} words added")
         self.stdout.write(self.style.SUCCESS('Words added successfully!'))
 
 

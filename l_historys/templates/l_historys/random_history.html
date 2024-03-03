@@ -1,0 +1,150 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/lernAboutWord.css' %}">
+
+<div class="container mb-5">
+
+    <div class="row">
+        <div class="col-md-6">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                {% if random_history.image1 %}
+                  <div class="carousel-item active">
+                    <img src="{{ random_history.image1.url }}" class="d-block w-100" alt="...">
+                  </div>
+                {% endif %}
+                {% if random_history.image2 %}
+                  <div class="carousel-item">
+                    <img src="{{ random_history.image2.url }}" class="d-block w-100" alt="...">
+                  </div>
+                {% endif %}
+                {% if random_history.image3 %}
+                  <div class="carousel-item">
+                    <img src="{{ random_history.image3.url }}" class="d-block w-100" alt="...">
+                  </div>
+                {% endif %}
+                {% if random_history.image4 %}
+                  <div class="carousel-item">
+                    <img src="{{ random_history.image4.url }}" class="d-block w-100" alt="...">
+                  </div>
+                {% endif %}
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-12">
+<p class="d-inline-flex justify-content-end gap-1 mt-1">
+    <button class="btn btn-sm my_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNoun" aria-expanded="false" aria-controls="collapseNoun">Noun</button>
+    <button class="btn btn-sm my_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVerbs" aria-expanded="false" aria-controls="collapseVerbs">Verbs</button>
+    <button class="btn btn-sm my_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrepositions" aria-expanded="false" aria-controls="collapsePrepositions">Prepositions</button>
+    <button class="btn btn-sm my_button_red" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Все темы</button>
+</p>
+
+                    <div class="row mt-1">
+                        <div class="">
+                            <div class="collapse multi-collapse" id="collapseNoun">
+                                {% for key, value in random_history.noun.items %}
+                                    <div class="d-inline-block m-1 mb-3" onclick="toggleWordTranslation(this)">
+                                        <span class="border border-dark rounded text-center py-2 border-2 bg-light shadow-box-sm word px-3">{{ key }}</span>
+                                        <span class="translation border border-dark rounded text-center py-2 border-2 bg-light shadow-box-sm word px-3" style="display: none;">{{ value }}</span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="collapse multi-collapse" id="collapseVerbs">
+                                {% for key, value in random_history.verbs.items %}
+                                    <div class="d-inline-block m-1 mb-3" onclick="toggleWordTranslation(this)">
+                                        <span class="border border-dark rounded text-center py-2 border-2 bg-light shadow-box-sm word px-3">{{ key }}</span>
+                                        <span class="translation border border-dark rounded text-center py-2 border-2 bg-light shadow-box-sm word px-3" style="display: none;">{{ value }}</span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="collapse multi-collapse" id="collapsePrepositions">
+                                {% for key, value in random_history.prepositions.items %}
+                                    <div class="d-inline-block m-1 mb-3" onclick="toggleWordTranslation(this)">
+                                        <span class="border border-dark rounded text-center py-2 border-2 bg-light shadow-box-sm word px-3">{{ key }}</span>
+                                        <span class="translation border border-dark rounded text-center py-2 border-2 bg-light shadow-box-sm word px-3" style="display: none;">{{ value }}</span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 ml-4">
+                <div class="col-md-12 my_text " style="color:white;">
+                    <footer class="blockquote-footer pt-3">Die Geschichte von <cite title="Source Title">{{ random_history.name }}</cite></footer>
+                    <div id="textContainer">
+                        <p>{{ random_history.text }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="offcanvas offcanvas-start" style="background-color: #036280;" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Список тем</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    {% for story in histories %}
+      <div class="my_text mb-2" >
+        <footer class="blockquote-footer pt-3"><a href="{% url 'random_history_with_id' id_story=story.id %}" style="color:white;">{{ story.name }} </a></footer>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="position-fixed top-50 end-0 translate-middle-y">
+    <button class="my_button" onclick="reloadPage()">></button>
+</div>
+
+    <!-- Подключение скриптов -->
+    <script>
+        function toggleWords(id) {
+            var element = document.getElementById(id);
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+            } else {
+                element.classList.add('hidden');
+            }
+        }
+
+     function toggleWordTranslation(element) {
+        var wordSpan = element.querySelector('.word');
+        var translationSpan = element.querySelector('.translation');
+
+        if (wordSpan.style.display !== 'none') {
+            wordSpan.style.display = 'none';
+            translationSpan.style.display = 'inline';
+        } else {
+            wordSpan.style.display = 'inline';
+            translationSpan.style.display = 'none';
+        }
+    }
+
+  function reloadPage() {
+    location.reload();
+  }
+
+
+    </script>
+
+{% endblock %}

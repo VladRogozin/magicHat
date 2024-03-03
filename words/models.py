@@ -11,4 +11,5 @@ class Word(models.Model):
     rus_translation = models.CharField(max_length=255, default=None)
     image = models.FileField(upload_to=audio_file_name, default=None, blank=True, null=True)
     support_word = models.JSONField(default=dict, blank=True, null=True)
-    explanations = models.TextField(default='', blank=True, null=True,)
+    explanations = models.TextField(default='', blank=True, null=True)
+    how_to_memorize = models.TextField(default='', blank=True, null=True)

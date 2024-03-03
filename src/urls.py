@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('magic_hat/', include('learnAboutWord.urls')),
     path('words/', include('words.urls')),
+    path('storys/', include('l_historys.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
