@@ -1,0 +1,133 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lernAboutWord.css' %}">
+
+<div id="textContainer" style="color: white;" data-text="{{ page.text_with_markup|escapejs }}"></div>
+        <!-- Place your large text here -->
+
+    </div>
+
+<script>
+    var text = "{{ page.text_with_markup|escapejs }}";
+    text = text.replace(/\\u000A/g, '\n');
+    // Разбиваем текст на отдельные слова
+    var words = text.split(" ");
+
+    // Находим контейнер, куда будем добавлять отдельные теги <span>
+    var container = document.getElementById("textContainer");
+
+    // Проходимся по каждому слову
+    words.forEach(function(word) {
+        // Создаем новый элемент <span>
+        var span = document.createElement("span");
+        // Устанавливаем текст элемента как текущее слово
+        span.textContent = word + " "; // добавляем пробел после каждого слова
+        // Добавляем класс 'word' для каждого <span>
+        span.classList.add('word');
+        // Добавляем обработчик событий для щелчка по слову
+        span.addEventListener('click', function() {
+            // Удаляем класс 'selected' у всех слов
+            var allWords = document.querySelectorAll('.word');
+            allWords.forEach(function(elem) {
+                elem.classList.remove('selected');
+            });
+            // Добавляем класс 'selected' к выбранному слову
+            span.classList.add('selected');
+        });
+        // Добавляем элемент <span> в контейнер
+        container.appendChild(span);
+    });
+</script>
+<script>
+// Находим все элементы с классом 'word'
+var words = document.querySelectorAll('.word');
+
+// Проходимся по каждому слову
+words.forEach(function(word) {
+    // Добавляем обработчик событий для клика по слову
+    word.addEventListener('click', function() {
+        // Получаем текст выбранного слова
+        var sourceText = word.textContent.trim();
+
+        // Отправляем запрос на сервер с использованием fetch
+        fetch('/books/translation/' + encodeURIComponent(sourceText) + '/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(function(response) {
+            if (!response.ok) {
+                throw new Error('Ошибка при выполнении запроса: ' + response.status);
+            }
+            // Возвращаем ответ в формате JSON
+            return response.json();
+        })
+.then(function(data) {
+    // Получаем значение translation из JSON-ответа
+    var translation = data.translation;
+    console.log(translation);
+
+    // Создаем новый элемент тоста
+    var toast = document.createElement("div");
+    toast.classList.add("toast");
+    toast.setAttribute("role", "alert");
+    toast.setAttribute("aria-live", "assertive");
+    toast.setAttribute("aria-atomic", "true");
+
+    // Создаем заголовок тоста
+    var toastHeader = document.createElement("div");
+    toastHeader.classList.add("toast-header");
+
+    // Добавляем картинку (если нужно)
+    // var img = document.createElement("img");
+    // img.src = "...";
+    // img.classList.add("rounded", "me-2");
+    // img.alt = "...";
+    // toastHeader.appendChild(img);
+
+    // Создаем заголовок тоста
+    var strong = document.createElement("strong");
+    strong.classList.add("me-auto");
+    strong.textContent = "Bootstrap";
+    toastHeader.appendChild(strong);
+
+    // Добавляем временную метку
+    var small = document.createElement("small");
+    small.textContent = "11 mins ago";
+    toastHeader.appendChild(small);
+
+    // Добавляем кнопку закрытия тоста
+    var button = document.createElement("button");
+    button.type = "button";
+    button.classList.add("btn-close");
+    button.setAttribute("data-bs-dismiss", "toast");
+    button.setAttribute("aria-label", "Close");
+    toastHeader.appendChild(button);
+
+    // Добавляем заголовок тоста в сам тост
+    toast.appendChild(toastHeader);
+
+    // Создаем тело тоста
+    var toastBody = document.createElement("div");
+    toastBody.classList.add("toast-body");
+    toastBody.textContent = translation; // Устанавливаем текст перевода
+    toast.appendChild(toastBody);
+
+    // Добавляем тост в DOM
+    document.body.appendChild(toast);
+
+    // Инициализируем тост Bootstrap
+    var bootstrapToast = new bootstrap.Toast(toast);
+    bootstrapToast.show();
+})
+        .catch(function(error) {
+            console.error('Произошла ошибка:', error.message);
+        });
+    });
+});
+</script>
+{% endblock %}
+

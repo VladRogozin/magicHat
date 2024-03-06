@@ -10,6 +10,7 @@ urlpatterns = [
     path('magic_hat/', include('learnAboutWord.urls')),
     path('words/', include('words.urls')),
     path('storys/', include('l_historys.urls')),
+    path('books/', include('books.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'learnAboutWord',
     'words',
     'l_historys',
+    'books',
 
 ]
 

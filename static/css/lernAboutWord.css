@@ -69,3 +69,8 @@ a {
 .hidden {
     display: none; /* Скрытые слова по умолчанию */
 }
+
+
+.highlighted {
+    border: 1px solid yellow;
+}
